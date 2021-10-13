@@ -35,11 +35,11 @@ public class UserModel {
 	@Size (min = 5)
 	private String password;
 	
-	@OneToMany (mappedBy = "name", cascade = CascadeType.REMOVE)
-	@JsonIgnoreProperties ({"creator"})
-	private List<PostagemModel> myposts = new ArrayList<>();
-
-			
+	@OneToMany (mappedBy = "nomes", cascade = CascadeType.REMOVE)
+	@JsonIgnoreProperties ({"nomes"})
+	private List<PostagemModel> nomes = new ArrayList<>();
+	
+	
 	public UserModel(@NotBlank String name, @NotBlank @Email String email, @NotBlank @Size(min = 5) String password) {
 		super();
 		this.name = name;
@@ -83,13 +83,15 @@ public class UserModel {
 		this.password = password;
 	}
 
-	public List<PostagemModel> getMyposts() {
-		return myposts;
+	public List<PostagemModel> getNomes() {
+		return nomes;
 	}
 
-	public void setMyposts(List<PostagemModel> myposts) {
-		this.myposts = myposts;
+	public void setNomes(List<PostagemModel> nomes) {
+		this.nomes = nomes;
 	}
+
+			
 	
 	
 }

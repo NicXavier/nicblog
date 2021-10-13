@@ -13,9 +13,13 @@ public class UserDTO{
 	private Long id;
 	private String name;
 	private String token;
+	private String photo;
+	private String typeUser;
 	
 	@NotBlank
 	private String password;
+	
+	
 	
 	public String getEmail() {
 		return email;
@@ -48,7 +52,18 @@ public class UserDTO{
 		this.password = password;
 	}
 	
-	
+	public String getPhoto() {
+		return photo;
+	}
+	public void setPhoto(String photo) {
+		this.photo = photo;
+	}
+	public String getTypeUser() {
+		return typeUser;
+	}
+	public void setTypeUser(String typeUser) {
+		this.typeUser = typeUser;
+	}
 	
 	
 }

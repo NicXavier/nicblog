@@ -6,7 +6,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -17,7 +16,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.sun.istack.NotNull;
 
 @Entity
-@Table(name = "posts")
+@Table(name = "tb_posts")
 public class PostagemModel {
  
 	@Id
@@ -35,30 +34,18 @@ public class PostagemModel {
 	private Date date = new java.sql.Date(System.currentTimeMillis());
 	
 	@ManyToOne
-	@JoinColumn(name = "theme_id")
-	private ThemeModel theme;
+	@JsonIgnoreProperties("temas")
+	private ThemeModel temas;
 	
 	@ManyToOne
-	@JoinColumn(name = "user_id")
-	private UserModel name;
-		
-	public ThemeModel getTheme() {
-		return theme;
-	}
+	@JsonIgnoreProperties("nomes")
+	private UserModel nomes;
 
-	public void setTheme(ThemeModel theme) {
-		this.theme = theme;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -86,21 +73,23 @@ public class PostagemModel {
 		this.date = date;
 	}
 
-	public ThemeModel getTema() {
-		return theme;
+	public ThemeModel getTemas() {
+		return temas;
 	}
 
-	public void setTema(ThemeModel theme) {
-		this.theme = theme;
+	public void setTemas(ThemeModel temas) {
+		this.temas = temas;
 	}
 
-	public UserModel getName() {
-		return name;
+	public UserModel getNomes() {
+		return nomes;
 	}
 
-	public void setName(UserModel name) {
-		this.name = name;
+	public void setNomes(UserModel nomes) {
+		this.nomes = nomes;
 	}
+		
+	
 	
 	
 	

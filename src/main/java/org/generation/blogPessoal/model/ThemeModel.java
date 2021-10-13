@@ -14,7 +14,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.sun.istack.NotNull;
 
 @Entity
-@Table(name = "theme")
+@Table(name = "tb_theme")
 public class ThemeModel {
 
 	@Id
@@ -24,9 +24,9 @@ public class ThemeModel {
 	@NotNull
 	private String description;
 	
-	@OneToMany(mappedBy = "theme", cascade = CascadeType.ALL)
-	@JsonIgnoreProperties("theme")
-	private List<PostagemModel> postagem;
+	@OneToMany(mappedBy = "temas", cascade = CascadeType.ALL)
+	@JsonIgnoreProperties("temas")
+	private List<PostagemModel> temas;
 
 	public Long getId() {
 		return id;
@@ -44,14 +44,13 @@ public class ThemeModel {
 		this.description = description;
 	}
 
-	public List<PostagemModel> getPostagem() {
-		return postagem;
+	public List<PostagemModel> getTemas() {
+		return temas;
 	}
 
-	public void setPostagem(List<PostagemModel> postagem) {
-		this.postagem = postagem;
+	public void setTemas(List<PostagemModel> temas) {
+		this.temas = temas;
 	}
-	
-	
-	
 }
+
+	
